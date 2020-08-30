@@ -1,0 +1,22 @@
+<ul class="hongbao_list_ul">
+  <li class="hongbao_list_li" v-for="item in hongbaoList" :key="item.id">
+    <section class="list_item">
+      <div class="list_item_left">
+        <span>¥</span>
+        <span>{{String(item.amount).split('.')[0]}}</span>
+        <span>.</span>
+        <span>{{String(item.amount).split('.')[1]||0}}</span>
+        <p>{{item.description_map.sum_condition}}</p>
+      </div>
+      <div class="list_item_right">
+        <h4>{{item.name}}</h4>
+        <p>{{item.description_map.validity_periods}}</p>
+        <p>{{item.description_map.phone}}</p>
+      </div>
+      <div class="time_left">{{item.description_map.validity_delta}}</div>
+    </section>
+    <footer class="list_item_footer" v-if="item.limit_map">
+      <p>{{item.limit_map.restaurant_flavor_ids}}</p>
+    </footer>
+  </li>
+</ul>
